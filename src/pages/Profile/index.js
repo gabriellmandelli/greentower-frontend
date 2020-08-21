@@ -3,7 +3,6 @@ import { Form, Input } from '@rocketseat/unform';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Container } from './styles';
-import AvatarInput from './AvatarInput';
 import { signOut } from '../../store/modules/auth/actions';
 import { updateProfileRequest } from '~/store/modules/user/actions';
 
@@ -21,24 +20,16 @@ function Profile() {
 
   return (
     <Container>
+      <h1 align= "center">Meu Perfil</h1>
       <Form initialData={profile} onSubmit={handleSubmit}>
-        <AvatarInput name="avatar_id" />
         <Input name="name" placeholder="Nome completo" />
         <Input name="email" type="email" placeholder="Seu endereço de e-mail" />
 
         <hr />
 
-        <Input
-          name="oldPassword"
-          type="password"
-          placeholder="Sua senha atual"
-        />
+        <Input name="oldPassword" type="password" placeholder="Sua senha atual" />
         <Input name="password" type="password" placeholder="Nova senha" />
-        <Input
-          name="confirmPassword"
-          type="password"
-          placeholder="Confirmação de senha"
-        />
+        <Input name="confirmPassword" type="password" placeholder="Confirmação de senha" />
 
         <button type="submit">Atualizar perfil</button>
       </Form>

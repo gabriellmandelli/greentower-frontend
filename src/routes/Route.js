@@ -15,7 +15,7 @@ function RouteWrapper({ component: Component, isPrivate = false, ...rest }) {
   }
 
   if (signed && !isPrivate) {
-    return <Redirect to="/dashboard" />;
+    return <Redirect to="/person" />;
   }
 
   const Layout = signed ? DefaultLayout : AuthLayout;
