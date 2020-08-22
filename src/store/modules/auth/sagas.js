@@ -7,7 +7,7 @@ import history from '../../../services/history';
 export function* signIn({ payload }) {
   try {
     const { email, password } = payload;
-    
+
     const response = yield call(api.post, 'sessions', {
       email,
       password,
@@ -21,7 +21,6 @@ export function* signIn({ payload }) {
 
     history.push('/person');
   } catch (err) {
-    console.tron.log('errrou');
     toast.error('Falha na autenticação, verifique seus dados');
     yield put(signFailure());
   }

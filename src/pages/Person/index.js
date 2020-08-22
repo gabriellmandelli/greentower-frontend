@@ -32,8 +32,6 @@ function Person() {
   }
 
   async function handleSubmit(data) {
-    console.log(data)
-
     if (editing){
       await api.put(`pessoa/v1/${idPersonEditing}`, data).then(
         function(sucess){
