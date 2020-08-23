@@ -20,6 +20,8 @@ function Person() {
   }
 
   function deletPerson(){
+    const token = JSON.parse(JSON.parse(localStorage.getItem("persist:softplay")).auth).token
+    api.defaults.headers.Authorization = `Bearer ${token}`
     api.delete(`pessoa/v1/${idPersonEditing}`).then(
       function(sucess){
         toast.success("Sucesso ao remover pessoa")
@@ -46,6 +48,8 @@ function Person() {
   }
 
   async function handleSubmit(data) {
+    const token = JSON.parse(JSON.parse(localStorage.getItem("persist:softplay")).auth).token
+    api.defaults.headers.Authorization = `Bearer ${token}`
     if (editing){
       await api.put(`pessoa/v1/${idPersonEditing}`, data).then(
         function(sucess){
