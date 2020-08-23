@@ -13,7 +13,6 @@ padding-top: 30px;
 margin-top: 30px;
 border-top: 1px solid #eee;
 list-style: none;
-
 li {
   display: flex;
   padding: 15px 10px;
@@ -46,7 +45,7 @@ li {
     margin-left: 15px;
 
     p {
-      color: #333;
+      color: #fff;
       margin-top: 5px;
       font-size: 15px;
     }
@@ -55,6 +54,9 @@ li {
 `;
 
 export const Container = styled.div`
+
+  color: #fff;
+
   max-width: 600px;
   margin: 50px auto;
 

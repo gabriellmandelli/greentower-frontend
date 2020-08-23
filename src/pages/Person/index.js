@@ -19,6 +19,20 @@ function Person() {
     setEditing(false)
   }
 
+  function deletPerson(){
+    api.delete(`pessoa/v1/${idPersonEditing}`).then(
+      function(sucess){
+        toast.success("Sucesso ao remover pessoa")
+        resetForm()
+        getAllPerson()
+      }
+    ).catch(
+      function(error){
+        toast.error(`Erro ao remover pessoa ${error.response.data.message}`);
+      }
+    )
+  }
+
   function setPersonToEdit(person){
     document.getElementById("nome").value = person.nome
     document.getElementById("email").value = person.email
@@ -60,6 +74,8 @@ function Person() {
   }
 
   async function getAllPerson(){
+    const token = JSON.parse(JSON.parse(localStorage.getItem("persist:softplay")).auth).token
+    api.defaults.headers.Authorization = `Bearer ${token}`
     await api.get('pessoa/v1').then(
       function(sucess){
         setPersonList(sucess.data)
@@ -78,8 +94,8 @@ function Person() {
     <Container>
       <h1 align= "center">Cadastro de Pessoas</h1>
       <Form initialData={person} onSubmit={handleSubmit} id="add-person">
-        <Input id="nome" name="nome" placeholder="Seu nome completo" />
-        <Input id="email" name="email" type="email" placeholder="Seu endereço de e-mail" />
+        <Input id="nome" name="nome" maxLength="255" placeholder="Nome completo" />
+        <Input id="email" name="email" type="email" maxLength="100" placeholder="Endereço de e-mail" />
         <Select
           id="sexo" name="sexo"
           options={[
@@ -87,14 +103,14 @@ function Person() {
             { id: "FEMININO", title: "Feminino" }
           ]}
         />
-        <Input id="dataNascimento" name="dataNascimento" type="date" placeholder="17/01/1995" />
-        <Input id="naturalidade" name="naturalidade"  placeholder="Sua naturalidade" />
-        <Input id="nacionalidade" name="nacionalidade"  placeholder="Sua nacionalidade" />
-        <Input id="cpf" name="cpf" type="cpf" placeholder="Seu cpf somente números" />
+        <Input id="dataNascimento" name="dataNascimento" type="date" />
+        <Input id="naturalidade" maxLength="255" name="naturalidade"  placeholder="Naturalidade" />
+        <Input id="nacionalidade" maxLength="255" name="nacionalidade"  placeholder="Nacionalidade" />
+        <Input id="cpf" maxLength="11" name="cpf" type="cpf" placeholder="Cpf somente números" />
         <button type="submit">{editing ? "Atualizar" : "Adicionar"}</button>
       </Form>
       
-      {editing ? (<button type="button">Excluir</button>) : ""}
+      {editing ? (<button type="button" onClick={ () => deletPerson()}>Excluir</button>) : ""}
       
       {editing ? (<button type="button" onClick={ () => resetForm()}>Cancelar</button>) : ""}
 
