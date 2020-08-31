@@ -1,5 +1,5 @@
 {
-  "name": "softplay-apply-web",
+  "name": "softplay-web",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

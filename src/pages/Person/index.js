@@ -49,25 +49,25 @@ function Person() {
     if (editing){
       await api.put(`pessoa/v1/${idPersonEditing}`, data).then(
         function(sucess){
-          toast.success("Sucesso ao editar pessoa")
+          toast.success("Success in editing person")
           resetForm()
           getAllPerson()
         }
       ).catch(
         function(error){
-          toast.error(`Erro ao editar pessoa, ${error.response.data.message}`);
+          toast.error(`Error editing person, ${error.response.data.message}`);
         }
       )
     }else{
       await api.post('pessoa/v1', data).then(
         function(sucess){
-          toast.success("Sucesso ao adicionar pessoa")
+          toast.success("Success in adding person")
           resetForm()
           getAllPerson()
         }
       ).catch(
         function(error){
-          toast.error(`Erro ao adicionar pessoa, ${error.response.data.message}`);
+          toast.error(`Error adding person, ${error.response.data.message}`);
         }
       )
     }
@@ -90,27 +90,27 @@ function Person() {
 
   return (
     <Container>
-      <h1 align= "center">Cadastro de Pessoas</h1>
+      <h1 align= "center">Person</h1>
       <Form initialData={person} onSubmit={handleSubmit} id="add-person">
-        <Input id="nome" name="nome" maxLength="255" placeholder="Nome completo" />
-        <Input id="email" name="email" type="email" maxLength="100" placeholder="Endereço de e-mail" />
+        <Input id="nome" name="nome" maxLength="255" placeholder="Name" />
+        <Input id="email" name="email" type="email" maxLength="100" placeholder="E-mail" />
         <Select
           id="sexo" name="sexo"
           options={[
-            { id: "MASCULINO", title: "Masculino" },
-            { id: "FEMININO", title: "Feminino" }
+            { id: "MASCULINO", title: "Male" },
+            { id: "FEMININO", title: "Female" }
           ]}
         />
         <Input id="dataNascimento" name="dataNascimento" type="date" />
-        <Input id="naturalidade" maxLength="255" name="naturalidade"  placeholder="Naturalidade" />
-        <Input id="nacionalidade" maxLength="255" name="nacionalidade"  placeholder="Nacionalidade" />
-        <Input id="cpf" maxLength="11" name="cpf" type="cpf" placeholder="Cpf somente números" />
-        <button type="submit">{editing ? "Atualizar" : "Adicionar"}</button>
+        <Input id="naturalidade" maxLength="255" name="naturalidade"  placeholder="Naturalness" />
+        <Input id="nacionalidade" maxLength="255" name="nacionalidade"  placeholder="Nationality" />
+        <Input id="cpf" maxLength="11" name="cpf" type="cpf" placeholder="CPF only numbers" />
+        <button type="submit">{editing ? "Update" : "Add"}</button>
       </Form>
       
-      {editing ? (<button type="button" onClick={ () => deletPerson()}>Excluir</button>) : ""}
+      {editing ? (<button type="button" onClick={ () => deletPerson()}>Remove</button>) : ""}
       
-      {editing ? (<button type="button" onClick={ () => resetForm()}>Cancelar</button>) : ""}
+      {editing ? (<button type="button" onClick={ () => resetForm()}>Cancel</button>) : ""}
 
       <PersonList>
         <Scroll>
@@ -118,13 +118,13 @@ function Person() {
             <li key={String(person.id)}>
                 <div>
                   <strong>
-                    <p>Nome: {person.nome}</p>
+                    <p>Name: {person.nome}</p>
                     <p>CPF: {person.cpf}</p>
-                    <p>Email: {person.email}</p>
+                    <p>E-mail: {person.email}</p>
                   </strong>
                   
                 </div>
-                <button onClick={() => setPersonToEdit(person)}>Editar</button>
+                <button onClick={() => setPersonToEdit(person)}>Edit</button>
               </li>
             ))
           }

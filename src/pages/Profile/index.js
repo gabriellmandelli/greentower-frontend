@@ -20,22 +20,22 @@ function Profile() {
 
   return (
     <Container>
-      <h1 align= "center">Meu Perfil</h1>
+      <h1 align= "center">My profile</h1>
       <Form initialData={profile} onSubmit={handleSubmit}>
-        <Input name="name" maxLength="255" placeholder="Nome completo" />
-        <Input name="email" maxLength="255" type="email" placeholder="Seu endereço de e-mail" />
+        <Input name="name" maxLength="255" placeholder="Name" />
+        <Input name="email" maxLength="255" type="email" placeholder="E-mail andress" />
 
         <hr />
 
-        <Input name="oldPassword" maxLength="50" type="password" placeholder="Sua senha atual" />
-        <Input name="password" maxLength="50" type="password" placeholder="Nova senha" />
-        <Input name="confirmPassword" maxLength="50" type="password" placeholder="Confirmação de senha" />
+        <Input name="oldPassword" maxLength="50" type="password" placeholder="Last password" />
+        <Input name="password" maxLength="50" type="password" placeholder="New password" />
+        <Input name="confirmPassword" maxLength="50" type="password" placeholder="Confirm your password" />
 
-        <button type="submit">Atualizar perfil</button>
+        <button type="submit">Update profile</button>
       </Form>
 
       <button type="button" onClick={handleSignOut}>
-        Sair do Softplay
+        Logout
       </button>
     </Container>
   );
