@@ -1,12 +1,13 @@
-# Softplayer
-An application created from the requirement of [Softplayer-Java-Apply](https://github.com/softplan/softplayer-java-apply).
+# GreenTower-Frontend
+Application created to register people who are part of Green Software.
+
 ## Requirements
 - Node.js
 - yarn
 
 ## Running
 
-You will need that the backend [softplayer-apply-backend](https://github.com/gabriellmandelli/softplayer-apply-backend) was running. 
+You will need that the backend [greentower-backend](https://github.com/gabriellmandelli/greentower-backend) was running. 
 
 For start the application on developer mode, just run:
 ```
@@ -15,9 +16,9 @@ yarn start
 Open [http://localhost:3000](http://localhost:3000) to see the website running on your browser.
 
 ## Deployed
-- Backend deployed on HEROKU [disponivel aqui](https://softplayer-apply-backend.herokuapp.com/)
-- Frontend created with ReactJs and deployed on HEROKU [disponivel aqui](https://softplayer-apply-frontend.herokuapp.com/)
-- The documentation created by SWAGGER [disponivel aqui](https://softplayer-apply-backend.herokuapp.com/swagger-ui.html#/)
+- Backend deployed on HEROKU [available here](https://greentower-backend.herokuapp.com/)
+- Frontend created with ReactJs and deployed on HEROKU [available here](https://greentower-frontend.herokuapp.com/)
+- The documentation created by SWAGGER [available here](https://greentower-backend.herokuapp.com/swagger-ui.html#/)
 
 ## Dependencies
 - [ReactJs](https://reactjs.org/)

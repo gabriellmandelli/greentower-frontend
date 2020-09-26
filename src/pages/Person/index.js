@@ -5,7 +5,7 @@ import api from "../../services/api"
 import { Container, PersonList, Scroll } from './styles';
 import { toast } from 'react-toastify';
 
-const newPerson = { id: "", nome: "", email: "", sexo: "MASCULINO", dataNascimento: "", naturalidade: "", nacionalidade: "", cpf: ""}
+const newPerson = { id: "", name: "", email: "", gender: "MASCULINO", dateOfBirth: "", naturalness: "", nationality: "", cpf: ""}
 
 function Person() {
   const [personList, setPersonList] = useState([]);
@@ -20,26 +20,26 @@ function Person() {
   }
 
   function deletPerson(){
-    api.delete(`pessoa/v1/${idPersonEditing}`).then(
+    api.delete(`person/v1/${idPersonEditing}`).then(
       function(sucess){
-        toast.success("Sucesso ao remover pessoa")
+        toast.success("Success removing person")
         resetForm()
         getAllPerson()
       }
     ).catch(
       function(error){
-        toast.error(`Erro ao remover pessoa ${error.response.data.message}`);
+        toast.error(`Error removing person ${error.response.data.message}`);
       }
     )
   }
 
   function setPersonToEdit(person){
-    document.getElementById("nome").value = person.nome
+    document.getElementById("name").value = person.name
     document.getElementById("email").value = person.email
-    document.getElementById("sexo").value = person.sexo
-    document.getElementById("dataNascimento").value = person.dataNascimento
-    document.getElementById("naturalidade").value = person.naturalidade
-    document.getElementById("nacionalidade").value = person.nacionalidade
+    document.getElementById("gender").value = person.gender
+    document.getElementById("dateOfBirth").value = person.dateOfBirth
+    document.getElementById("naturalness").value = person.naturalness
+    document.getElementById("nationality").value = person.nationality
     document.getElementById("cpf").value = person.cpf
     setEditing(true)
     setIdPersonEditing(person.id)
@@ -47,7 +47,7 @@ function Person() {
 
   async function handleSubmit(data) {
     if (editing){
-      await api.put(`pessoa/v1/${idPersonEditing}`, data).then(
+      await api.put(`person/v1/${idPersonEditing}`, data).then(
         function(sucess){
           toast.success("Success in editing person")
           resetForm()
@@ -59,7 +59,7 @@ function Person() {
         }
       )
     }else{
-      await api.post('pessoa/v1', data).then(
+      await api.post('person/v1', data).then(
         function(sucess){
           toast.success("Success in adding person")
           resetForm()
@@ -74,7 +74,7 @@ function Person() {
   }
 
   async function getAllPerson(){
-    await api.get('pessoa/v1').then(
+    await api.get('person/v1').then(
       function(sucess){
         setPersonList(sucess.data)
       }
@@ -92,18 +92,18 @@ function Person() {
     <Container>
       <h1 align= "center">Person</h1>
       <Form initialData={person} onSubmit={handleSubmit} id="add-person">
-        <Input id="nome" name="nome" maxLength="255" placeholder="Name" />
+        <Input id="name" name="name" maxLength="255" placeholder="Name" />
         <Input id="email" name="email" type="email" maxLength="100" placeholder="E-mail" />
         <Select
-          id="sexo" name="sexo"
+          id="gender" name="gender"
           options={[
-            { id: "MASCULINO", title: "Male" },
-            { id: "FEMININO", title: "Female" }
+            { id: "MALE", title: "Male" },
+            { id: "FEMALE", title: "Female" }
           ]}
         />
-        <Input id="dataNascimento" name="dataNascimento" type="date" />
-        <Input id="naturalidade" maxLength="255" name="naturalidade"  placeholder="Naturalness" />
-        <Input id="nacionalidade" maxLength="255" name="nacionalidade"  placeholder="Nationality" />
+        <Input id="dateOfBirth" name="dateOfBirth" type="date" />
+        <Input id="naturalness" maxLength="255" name="naturalness"  placeholder="Naturalness" />
+        <Input id="nationality" maxLength="255" name="nationality"  placeholder="Nationality" />
         <Input id="cpf" maxLength="11" name="cpf" type="cpf" placeholder="CPF only numbers" />
         <button type="submit">{editing ? "Update" : "Add"}</button>
       </Form>
@@ -118,9 +118,11 @@ function Person() {
             <li key={String(person.id)}>
                 <div>
                   <strong>
-                    <p>Name: {person.nome}</p>
+                    <p>Name: {person.name}</p>
                     <p>CPF: {person.cpf}</p>
                     <p>E-mail: {person.email}</p>
+                    <p>Naturalness: {person.naturalness}</p>
+                    <p>Nationality: {person.nationality}</p>
                   </strong>
                   
                 </div>
