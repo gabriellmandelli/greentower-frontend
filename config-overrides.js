@@ -1,6 +1,6 @@
-import { addBabelPlugin, override } from 'customize-cra';
+const { addBabelPlugin, override } = require('customize-cra');
 
-export default override(
+module.exports = override(
   addBabelPlugin([
     'babel-plugin-root-import',
     {
