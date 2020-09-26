@@ -27,16 +27,15 @@ function SignUp() {
 
   return (
     <>
-      <img src="https://www.softplan.com.br/wp-content/themes/softplan-2019/imagens/logo-softplan.svg" alt="SoftPlayer" />
+      <img
+        src="https://www.softplan.com.br/wp-content/themes/softplan-2019/imagens/logo-softplan.svg"
+        alt="SoftPlayer"
+      />
 
       <Form schema={schema} onSubmit={handleSubmit}>
         <Input name="name" placeholder="Name" />
         <Input name="email" type="email" placeholder="E-mail" />
-        <Input
-          name="password"
-          type="password"
-          placeholder="Your password"
-        />
+        <Input name="password" type="password" placeholder="Your password" />
 
         <button type="submit">Create account</button>
         <Link to="/">Sign in</Link>

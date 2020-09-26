@@ -20,16 +20,36 @@ function Profile() {
 
   return (
     <Container>
-      <h1 align= "center">My profile</h1>
+      <h1 align="center">My profile</h1>
       <Form initialData={profile} onSubmit={handleSubmit}>
         <Input name="name" maxLength="255" placeholder="Name" />
-        <Input name="email" maxLength="255" type="email" placeholder="E-mail andress" />
+        <Input
+          name="email"
+          maxLength="255"
+          type="email"
+          placeholder="E-mail andress"
+        />
 
         <hr />
 
-        <Input name="oldPassword" maxLength="50" type="password" placeholder="Last password" />
-        <Input name="password" maxLength="50" type="password" placeholder="New password" />
-        <Input name="confirmPassword" maxLength="50" type="password" placeholder="Confirm your password" />
+        <Input
+          name="oldPassword"
+          maxLength="50"
+          type="password"
+          placeholder="Last password"
+        />
+        <Input
+          name="password"
+          maxLength="50"
+          type="password"
+          placeholder="New password"
+        />
+        <Input
+          name="confirmPassword"
+          maxLength="50"
+          type="password"
+          placeholder="Confirm your password"
+        />
 
         <button type="submit">Update profile</button>
       </Form>
