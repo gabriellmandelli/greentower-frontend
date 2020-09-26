@@ -1,31 +1,31 @@
-# Softplayer-java-apply
-Aplicação criada conforme os requisitos em [Softplayer-Java-Apply](https://github.com/softplan/softplayer-java-apply).
+# GreenTower-Frontend
+Application created to register people who are part of Green Software.
 
-## Requisitos
+## Requirements
 - Node.js
 - yarn
 
-## Para executar
+## Running
 
-É preciso que o backend [softplayer-apply-backend](https://github.com/gabriellmandelli/softplayer-apply-backend) esteja rodando. 
+You will need that the backend [greentower-backend](https://github.com/gabriellmandelli/greentower-backend) was running. 
 
-Para iniciar a aplicação em modo de desenvolvimento, executar:
+For start the application on developer mode, just run:
 ```
 yarn start
 ```
-Abra [http://localhost:3000](http://localhost:3000) para ver a aplicação rodando no seu browser.
+Open [http://localhost:3000](http://localhost:3000) to see the website running on your browser.
 
-## Disponivel
-- Backend hospedado no HEROKU [disponivel aqui](https://softplayer-apply-backend.herokuapp.com/)
-- Frontend feito em ReactJs hospedado no HEROKU [disponivel aqui](https://softplayer-apply-frontend.herokuapp.com/)
-- Documentação criada com o SWAGGER [disponivel aqui](https://softplayer-apply-backend.herokuapp.com/swagger-ui.html#/)
+## Deployed
+- Backend deployed on HEROKU [available here](https://greentower-backend.herokuapp.com/)
+- Frontend created with ReactJs and deployed on HEROKU [available here](https://greentower-frontend.herokuapp.com/)
+- The documentation created by SWAGGER [available here](https://greentower-backend.herokuapp.com/swagger-ui.html#/)
 
-## Dependecias utilizadas
+## Dependencies
 - [ReactJs](https://reactjs.org/)
 - [Redux](https://redux.js.org/)
 - [Saga](https://redux-saga.js.org/)
 - [Unform](https://unform.dev/)
 
-## Ferramentas Utilizadas
+## Tools
 - VS Code
 - Insomnia

@@ -14,14 +14,14 @@ export function* signIn({ payload }) {
     });
 
     const { token, user } = response.data;
-    
+
     api.defaults.headers.Authorization = `Bearer ${token}`;
 
     yield put(signInSuccess(token, user));
 
     history.push('/person');
   } catch (err) {
-    toast.error('Falha na autenticação, verifique seus dados');
+    toast.error('Authentication failed, check your data');
     yield put(signFailure());
   }
 }
@@ -33,12 +33,12 @@ export function* signUp({ payload }) {
     yield call(api.post, 'users', {
       name,
       email,
-      password
+      password,
     });
 
     history.push('/');
   } catch (err) {
-    toast.error('Falha no cadastro, verifique seus dados!');
+    toast.error('Authentication failed, check your data');
 
     yield put(signFailure());
   }

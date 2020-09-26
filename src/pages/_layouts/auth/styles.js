@@ -3,7 +3,7 @@ import { darken } from 'polished';
 
 export const Wrapper = styled.div`
   height: 100%;
-  background: linear-gradient(-90deg, #00bfff, #3100CE);
+  background: linear-gradient(-90deg, #00bfff, #3100ce);
   display: flex;
   justify-content: center;
   align-items: center;

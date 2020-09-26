@@ -11,14 +11,14 @@ function Header() {
     <Container>
       <Content>
         <nav>
-          <Link to="/person">Pessoas</Link>
+          <Link to="/person">Person</Link>
         </nav>
 
         <aside>
           <Profile>
             <div>
               <strong>{profile.name}</strong>
-              <Link to="/profile">Meu Perfil</Link>
+              <Link to="/profile">My profile</Link>
             </div>
           </Profile>
         </aside>

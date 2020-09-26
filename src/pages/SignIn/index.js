@@ -10,9 +10,9 @@ import { signInRequest } from '../../store/modules/auth/actions';
 
 const schema = Yup.object().shape({
   email: Yup.string()
-    .email('Insira um e-mail válido')
-    .required('O e-mail é obrigatório'),
-  password: Yup.string().required('A senha é obrigatória'),
+    .email('Enter a valid email')
+    .required('Email is required'),
+  password: Yup.string().required('Password is required'),
 });
 
 function SignIn() {
@@ -25,18 +25,16 @@ function SignIn() {
 
   return (
     <>
-      <img src="https://www.softplan.com.br/wp-content/themes/softplan-2019/imagens/logo-softplan.svg" alt="SoftPlayer" />
-
+      <img
+        src="https://www.softplan.com.br/wp-content/themes/softplan-2019/imagens/logo-softplan.svg"
+        alt="SoftPlayer"
+      />
       <Form schema={schema} onSubmit={handleSubmit}>
-        <Input name="email" type="email" placeholder="Seu e-mail" />
-        <Input
-          name="password"
-          type="password"
-          placeholder="Sua senha secreta"
-        />
+        <Input name="email" type="email" placeholder="Your e-mail" />
+        <Input name="password" type="password" placeholder="Your password" />
 
-        <button type="submit">{loading ? 'Carregando...' : 'Acessar'}</button>
-        <Link to="/register">Criar conta gratuita</Link>
+        <button type="submit">{loading ? 'Loading...' : 'Sign in'}</button>
+        <Link to="/register">Create an account.</Link>
       </Form>
     </>
   );

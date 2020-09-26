@@ -8,49 +8,48 @@ export const Scroll = styled(PerfectScrollbar)`
 `;
 
 export const PersonList = styled.ul`
-
-padding-top: 30px;
-margin-top: 30px;
-border-top: 1px solid #eee;
-list-style: none;
-li {
-  display: flex;
-  padding: 15px 10px;
-  border: 1px solid #eee;
-  border-radius: 4px;
-
-  & + li {
-    margin-top: 10px;
-  }
-  
-  button {
-    margin: 14px 0;
-    height:35px;
-    width: 60px;
-    background: #3b9eff;
-    font-weight: bold;
-    color: #fff;
-    border: 0;
+  padding-top: 30px;
+  margin-top: 30px;
+  border-top: 1px solid #eee;
+  list-style: none;
+  li {
+    display: flex;
+    padding: 15px 10px;
+    border: 1px solid #eee;
     border-radius: 4px;
-    font-size: 16px;
-    transition: background 0.3s;
 
-    &:hover {
-      background: ${darken(0.1, '#3b9eff')};
+    & + li {
+      margin-top: 10px;
     }
-  }
 
-  div {
-    flex: 1;
-    margin-left: 15px;
-
-    p {
+    button {
+      margin: 14px 0;
+      height: 35px;
+      width: 60px;
+      background: #3b9eff;
+      font-weight: bold;
       color: #fff;
-      margin-top: 5px;
-      font-size: 15px;
+      border: 0;
+      border-radius: 4px;
+      font-size: 16px;
+      transition: background 0.3s;
+
+      &:hover {
+        background: ${darken(0.1, '#3b9eff')};
+      }
+    }
+
+    div {
+      flex: 1;
+      margin-left: 15px;
+
+      p {
+        color: #fff;
+        margin-top: 5px;
+        font-size: 15px;
+      }
     }
   }
-}
 `;
 
 export const Container = styled.div`
