@@ -9,13 +9,13 @@ import { signUpRequest } from '../../store/modules/auth/actions';
 // import { Container } from './styles';
 
 const schema = Yup.object().shape({
-  name: Yup.string().required('O nome é obrigatório'),
+  name: Yup.string().required('Name is required'),
   email: Yup.string()
-    .email('Insira um e-mail válido')
-    .required('O e-mail é obrigatório'),
+    .email('Enter a valid e-mail')
+    .required('E-mail is required'),
   password: Yup.string()
-    .min(6, 'Senha deve ter no mínimo 6 caracteres')
-    .required('A senha é obrigatória'),
+    .min(6, 'Password must be at least 6 characters')
+    .required('Password is required'),
 });
 
 function SignUp() {

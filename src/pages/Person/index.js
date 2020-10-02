@@ -9,7 +9,7 @@ const newPerson = {
   id: '',
   name: '',
   email: '',
-  gender: 'MASCULINO',
+  gender: 'MALE',
   dateOfBirth: '',
   naturalness: '',
   nationality: '',
@@ -74,7 +74,14 @@ function Person() {
           getAllPerson();
         })
         .catch(error => {
-          toast.error(`Error editing person, ${error.response.data.message}`);
+          if (error.response.data.errors) {
+            const errorList = error.response.data.errors;
+            errorList.map(errorItem =>
+              toast.error(`${errorItem.field} : ${errorItem.message}`)
+            );
+          } else {
+            toast.error(`Error editing person, ${error.response.data.message}`);
+          }
         });
     } else {
       await api
@@ -85,7 +92,14 @@ function Person() {
           getAllPerson();
         })
         .catch(error => {
-          toast.error(`Error adding person, ${error.response.data.message}`);
+          if (error.response.data.errors) {
+            const errorList = error.response.data.errors;
+            errorList.map(errorItem =>
+              toast.error(`${errorItem.field} : ${errorItem.message}`)
+            );
+          } else {
+            toast.error(`Error adding person, ${error.response.data.message}`);
+          }
         });
     }
   }
