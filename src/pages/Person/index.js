@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Input, Select } from '@rocketseat/unform';
 import { toast } from 'react-toastify';
+import { DataGrid } from '@material-ui/data-grid';
 import api from '../../services/api';
 
-import { Container, PersonList, Scroll } from './styles';
+import { Container } from './styles';
 
 const newPerson = {
   id: '',
@@ -53,6 +54,8 @@ function Person() {
   }
 
   function setPersonToEdit(personToEdit) {
+    // eslint-disable-next-line no-console
+    console.log(personToEdit);
     document.getElementById('name').value = personToEdit.name;
     document.getElementById('email').value = personToEdit.email;
     document.getElementById('gender').value = personToEdit.gender;
@@ -107,6 +110,26 @@ function Person() {
   useEffect(() => {
     getAllPerson();
   }, []);
+
+  const columns = [
+    { field: 'name', headerName: 'Name', width: 255 },
+    { field: 'email', headerName: 'Email', width: 230 },
+    { field: 'naturalness', headerName: 'Naturalness', width: 120 },
+    { field: 'nationality', headerName: 'Nationality', width: 105 },
+    { field: 'cpf', headerName: 'Cpf', width: 130 },
+    {
+      field: '',
+      headerName: 'Actions',
+      disableClickEventBubbling: true,
+      renderCell: params => {
+        return (
+          <button type="button" onClick={() => setPersonToEdit(params.data)}>
+            Edit
+          </button>
+        );
+      },
+    },
+  ];
 
   return (
     <Container>
@@ -166,27 +189,9 @@ function Person() {
       ) : (
         ''
       )}
-
-      <PersonList>
-        <Scroll>
-          {personList.map(person => (
-            <li key={String(person.id)}>
-              <div>
-                <strong>
-                  <p>Name: {person.name}</p>
-                  <p>CPF: {person.cpf}</p>
-                  <p>E-mail: {person.email}</p>
-                  <p>Naturalness: {person.naturalness}</p>
-                  <p>Nationality: {person.nationality}</p>
-                </strong>
-              </div>
-              <button type="button" onClick={() => setPersonToEdit(person)}>
-                Edit
-              </button>
-            </li>
-          ))}
-        </Scroll>
-      </PersonList>
+      <div style={{ height: 300, width: '100%' }}>
+        <DataGrid rows={personList} columns={columns} />
+      </div>
     </Container>
   );
 }
