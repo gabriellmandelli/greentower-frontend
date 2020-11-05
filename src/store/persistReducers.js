@@ -4,7 +4,7 @@ import { persistReducer } from 'redux-persist';
 export default reducers => {
   const persistedReducer = persistReducer(
     {
-      key: 'softplay',
+      key: 'greentower',
       storage,
       whitelist: ['auth', 'user'],
     },
